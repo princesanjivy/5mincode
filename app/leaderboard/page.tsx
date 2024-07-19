@@ -35,7 +35,7 @@ const Leaderboard = () => {
         </header>
         {/* Content  */}
         <div className="overflow-x-auto flex-grow mb-8">
-          <div className="grid 2xl:grid-rows-4  2xl:grid-flow-col sm:grid-cols-1 sm:grid-flow-row gap-8">
+          <div className="grid grid-cols-3 grid-flow-row gap-8">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
               <ProfileCard
                 key={item}
