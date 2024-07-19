@@ -3,6 +3,13 @@
 import CustomButton from "@/component/CustomButton";
 import Menu from "@/component/Menu";
 
+// const menuItems = [
+//   { name: "5mincode", path: "/home" },
+//   { name: "About", path: "/about" },
+//   { name: "Leaderboard", path: "/leaderboard" },
+//   { name: "FAQs", path: "/support" },
+// ];
+
 const About = () => {
   return (
     <div className="h-screen flex justify-between">
@@ -27,6 +34,22 @@ const About = () => {
         </div>
       </div>
       <div className="flex flex-col justify-between py-24 pr-24">
+        {/* <div className="border-2 border-black p-4">
+          {menuItems.map((item) => (
+            <Link href={item.path}>
+              <h1
+                key={item.path}
+                className={`text-6xl font-judson text-right m-4 ${
+                  isActive(item.path)
+                    ? "text-black hover:underline"
+                    : "text-gray-300 hover:text-black"
+                }`}
+              >
+                {`${item.name} ${isActive(item.path) ? `•` : ``}`}
+              </h1>
+            </Link>
+          ))}
+        </div> */}
         <Menu />
         <CustomButton name="Know more" />
       </div>
