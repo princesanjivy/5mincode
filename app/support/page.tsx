@@ -26,8 +26,10 @@ const Support = () => {
           <p>Libero urna mattis lobortis pulvinar lectus.</p>
         </div>
       </div>
-      <div className="flex flex-col justify-between py-24 pr-24">
+      <div className="absolute right-24 top-24">
         <Menu />
+      </div>
+      <div className="flex flex-col justify-end py-24 pr-24">
         <CustomButton name="Feedback" />
       </div>
     </div>

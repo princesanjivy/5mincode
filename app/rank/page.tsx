@@ -23,19 +23,17 @@ const ProfileCard = ({ name, coin, profile }: ProfileCardProps) => {
 
 const Leaderboard = () => {
   return (
-    <div className="h-screen flex justify-between overflow-hidden">
+    <div className="h-screen flex overflow-hidden">
       {/* Section 1 */}
       <div className="px-24 pt-24 flex flex-col">
         {/* Heading  */}
         <header>
           <div className="w-14 h-14 bg-black mb-8"></div>
-          <div className="font-kronaOne text-6xl leading-tight mb-8">
-            Leaderboard
-          </div>
+          <div className="font-kronaOne text-6xl leading-tight mb-8">Rank</div>
         </header>
         {/* Content  */}
-        <div className="overflow-x-auto flex-grow mb-8">
-          <div className="grid grid-cols-3 grid-flow-row gap-8">
+        <div className="overflow-y-auto flex-grow pr-4 mb-24">
+          <div className="grid grid-cols-2 grid-flow-row gap-8">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item) => (
               <ProfileCard
                 key={item}
@@ -47,7 +45,7 @@ const Leaderboard = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-between py-24 pr-24">
+      <div className="absolute right-24 top-24">
         <Menu />
       </div>
     </div>

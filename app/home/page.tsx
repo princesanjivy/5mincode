@@ -19,19 +19,21 @@ const Home = () => {
           </div>
         </header>
         {/* Side menu */}
-        <Menu />
+        <div className="absolute right-24 top-24">
+          <Menu />
+        </div>
       </div>
       {/* Section 2 */}
-      <div className="flex gap-8 justify-between px-24 pb-24">
+      <div className="flex gap-8 justify-between px-24">
         {/* Disabling this card for now */}
-        <div className="border-2 border-black p-8 w-1/3 opacity-0"> 
+        <div className="border-2 border-black p-8 w-1/3 opacity-0">
           <p className="text-4xl font-judson">
             Lorem ipsum dolor sit amet consectetur. Quisque lectus vitae
             faucibus varius. Lorem ipsum dolor sit amet consectetur. Quisque
             lectus vitae faucibus varius.
           </p>
         </div>
-        <div className="flex flex-col gap-8 items-end justify-end">
+        <div className="flex flex-col gap-8 items-end justify-end pb-24">
           <CustomButton name="Join a battle" />
           <div className="flex gap-8">
             <CustomButton name="Register" />

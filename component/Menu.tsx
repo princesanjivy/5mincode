@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 const menuItems = [
   { name: "5mincode", path: "/home" },
   { name: "About", path: "/about" },
-  { name: "Leaderboard", path: "/leaderboard" },
+  { name: "Rank", path: "/rank" },
   { name: "FAQs", path: "/support" },
 ];
 
@@ -12,7 +12,7 @@ const Menu = () => {
   const isActive = (pathName: string) => usePathname() === pathName;
 
   return (
-    <div className="border-2 border-black p-4">
+    <div className="border-2 border-black p-8">
       {menuItems.map((item) => (
         <Link href={item.path}>
           <h1
