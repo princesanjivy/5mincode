@@ -59,7 +59,7 @@ const LoginPage = () => {
           </div>
         </div>
         {/* Column 2 */}
-        <div className="h-screen flex flex-grow flex-col justify-end items-end pr-48 pb-24">
+        <div className="h-screen flex flex-grow flex-col justify-end items-end pr-24 pb-24">
           <div className="w-full flex flex-col gap-4 items-end relative">
             <input
               value={email}
