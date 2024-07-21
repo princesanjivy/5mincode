@@ -1,6 +1,5 @@
 "use client";
 
-import CustomButton from "@/component/CustomButton";
 import Menu from "@/component/Menu";
 import { ProfileCardProps } from "@/type/profileCard";
 

@@ -2,14 +2,23 @@ import { auth } from "./firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  User,
+  updateProfile,
 } from "firebase/auth";
 
 export const signUpWithEmailPassword = async (
   email: string,
+  displayName: string,
   password: string
-) => {
+): Promise<User | null> => {
   try {
-    await createUserWithEmailAndPassword(auth, email, password);
+    const userCred = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    await updateProfile(userCred.user, { displayName });
+    return userCred.user;
   } catch (error) {
     throw error;
   }

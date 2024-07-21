@@ -2,7 +2,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const menuItems = [
-  { name: "5mincode", path: "/home" },
+  { name: "5mincode", path: "/" },
   { name: "About", path: "/about" },
   { name: "Rank", path: "/rank" },
   { name: "FAQs", path: "/support" },

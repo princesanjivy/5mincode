@@ -11,7 +11,7 @@ const withoutAuth = (WrappedComponent: React.FC) => {
 
     useEffect(() => {
       if (!loading && user) {
-        router.push("/home");
+        router.push("/dashboard");
       }
     }, [user, loading, router]);
 
