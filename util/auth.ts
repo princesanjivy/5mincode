@@ -29,6 +29,7 @@ export const signInWithEmailPassword = async (
   password: string
 ) => {
   try {
+    console.log("sigin in ");
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     throw error;

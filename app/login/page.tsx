@@ -1,7 +1,7 @@
 "use client";
 
-import CustomButton from "@/component/CustomButton";
-import withoutAuth from "@/component/WithoutAuth";
+import CustomButton from "@/components/CustomButton";
+import withoutAuth from "@/components/WithoutAuth";
 import { signInWithEmailPassword } from "@/util/auth";
 import Link from "next/link";
 import { useState } from "react";
@@ -14,6 +14,7 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
+    console.log("login page");
     setLoading(true);
     try {
       await signInWithEmailPassword(email, password).then(() =>

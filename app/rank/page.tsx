@@ -1,6 +1,6 @@
 "use client";
 
-import Menu from "@/component/Menu";
+import Menu from "@/components/Menu";
 import { ProfileCardProps } from "@/type/profileCard";
 
 const ProfileCard = ({ name, coin, profile }: ProfileCardProps) => {

@@ -1,8 +1,8 @@
 "use client";
 
-import CustomButton from "@/component/CustomButton";
-import Menu from "@/component/Menu";
-import withoutAuth from "@/component/WithoutAuth";
+import CustomButton from "@/components/CustomButton";
+import Menu from "@/components/Menu";
+import withoutAuth from "@/components/WithoutAuth";
 import { useRouter } from "next/navigation";
 
 const Home = () => {

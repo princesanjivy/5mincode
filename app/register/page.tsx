@@ -1,7 +1,7 @@
 "use client";
 
-import CustomButton from "@/component/CustomButton";
-import withoutAuth from "@/component/WithoutAuth";
+import CustomButton from "@/components/CustomButton";
+import withoutAuth from "@/components/WithoutAuth";
 import { User } from "@/type/user";
 import { signUpWithEmailPassword } from "@/util/auth";
 import { addEntryToFirestore } from "@/util/firebaseFirestore";
@@ -23,8 +23,11 @@ const RegisterPage = () => {
         async (userData) => {
           const data: User = {
             id: userData!.uid,
-            userName: userData!.displayName,
-            joinedOn: new Date(),
+            user_name: userData!.displayName,
+            current_streak: 0,
+            display_picture: "",
+            total_coins: 0,
+            // joined_on: new Date(),
           };
           await addEntryToFirestore("user", data);
           setLoading(false);

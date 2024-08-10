@@ -1,22 +1,29 @@
+import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const menuItems = [
-  { name: "5mincode", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Rank", path: "/rank" },
-  { name: "FAQs", path: "/support" },
-];
-
 const Menu = () => {
-  const isActive = (pathName: string) => usePathname() === pathName;
+  const pathname = usePathname();
+  const { user } = useAuth();
+
+  const menuItems = [
+    user
+      ? { name: "Profile", path: "/dashboard" }
+      : { name: "5mincode", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Rank", path: "/rank" },
+    { name: "FAQs", path: "/support" },
+  ];
+
+  const isActive = (pathName: string) => {
+    return pathname === pathName;
+  };
 
   return (
     <div className="border-2 border-black p-8">
       {menuItems.map((item) => (
-        <Link href={item.path}>
+        <Link key={item.path} href={item.path}>
           <h1
-            key={item.path}
             className={`text-6xl font-judson text-right m-4 ${
               isActive(item.path)
                 ? "text-black hover:underline"

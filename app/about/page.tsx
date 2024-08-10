@@ -1,7 +1,7 @@
 "use client";
 
-import CustomButton from "@/component/CustomButton";
-import Menu from "@/component/Menu";
+import CustomButton from "@/components/CustomButton";
+import Menu from "@/components/Menu";
 
 // const menuItems = [
 //   { name: "5mincode", path: "/home" },
