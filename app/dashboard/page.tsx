@@ -27,7 +27,7 @@ const Dashboard = () => {
           <div className="mx-10 mt-8 flex gap-8">
             <img
               src={user!.display_picture!}
-              className="aspect-square w-28 h-28"
+              className="object-cover aspect-square w-28 h-28 border-black border-2"
             />
             <div className="w-28 h-28 border-black border-2 font-judson flex flex-col items-center justify-center text-lg">
               <span className="font-bold">{user!.current_streak}</span>

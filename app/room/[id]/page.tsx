@@ -78,11 +78,18 @@ const Battle = () => {
             )!.user;
             setMyUser(u);
             setShowBattleBtn(roomInfo.owner_id === user!.id);
+
+            //
+            if (roomInfo.is_started) {
+              setIsStarted(true);
+            }
+
             setConnectedUsers(roomInfo.user_info);
           } else if (messageData.method === "START") {
-            console.log(messageData.message);
-            console.log("battle");
-            setIsStarted(true);
+            console.log("to do");
+            // console.log(messageData.message);
+            // console.log("battle");
+            // setIsStarted(true);
             // router.push(`/room/${id}/battle`);
           } else {
             //   console.log(messageData);

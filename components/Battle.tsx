@@ -60,7 +60,7 @@ const Ide = ({ userName, currentUsers, questionId }: Props) => {
   const [question, setQuestion] = useState<QuestionProp | null>(null);
 
   const getQuestion = useCallback(() => {
-    const endpoint = `http://localhost:8000/question/${questionId}`;
+    const endpoint = `http://localhost:8000/ide/question/${questionId}`;
     fetch(endpoint, {
       method: "GET",
       headers: {
@@ -85,7 +85,7 @@ const Ide = ({ userName, currentUsers, questionId }: Props) => {
       const code = editorRef.current.getValue();
       console.log("Code from editor:", code);
 
-      const endpoint = "http://localhost:8000/runCode";
+      const endpoint = "http://localhost:8000/ide/run";
 
       fetch(endpoint, {
         method: "POST",
@@ -116,7 +116,7 @@ const Ide = ({ userName, currentUsers, questionId }: Props) => {
                 key={idx}
                 src={value.user.display_picture!}
                 alt="Profile"
-                className="w-auto"
+                className="object-cover border-black border-2 aspect-square"
               />
               // <h1>
               //   {value.user.user_name}
