@@ -29,6 +29,8 @@ const Battle = () => {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  const [startTime, setStartTime] = useState<Date | null>();
+
   const handleAction1 = () => {
     console.log("Action 1 executed");
     setIsDialogOpen(false);
@@ -44,7 +46,7 @@ const Battle = () => {
 
     const validateIdNInitWebSocket = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/room/exist/${id}`);
+        const response = await fetch(`http://localhost:8000/room/exist/${id}`); // TODO change this
         const data = await response.json();
 
         if (!data.exists) {
@@ -80,8 +82,12 @@ const Battle = () => {
             setShowBattleBtn(roomInfo.owner_id === user!.id);
 
             //
-            if (roomInfo.is_started) {
+            if (roomInfo.is_started && !roomInfo.is_ended) {
               setIsStarted(true);
+              console.log(roomInfo.start_time);
+
+              let st = new Date(roomInfo.start_time!);
+              setStartTime(st);
             }
 
             setConnectedUsers(roomInfo.user_info);
@@ -132,6 +138,13 @@ const Battle = () => {
     }
   };
 
+  const handleCompletion = () => {
+    if (socket) {
+      socket.send(JSON.stringify({ message: "END" }));
+    }
+    setIsStarted(false);
+  };
+
   const handlePlay = () => {
     // setIsDialogOpen(true);
     // notify server to start the game
@@ -155,6 +168,8 @@ const Battle = () => {
         userName={myUser.user_name!}
         currentUsers={connectedUsers}
         questionId={"NAtMrXgsHbyGNthtw8GV"}
+        startTime={startTime!}
+        onCompletion={handleCompletion}
       />
     );
   }

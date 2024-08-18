@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 interface CountdownTimerProps {
   startTime: Date;
+  onTimeUp: () => void;
 }
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ startTime }) => {
+const CountdownTimer: React.FC<CountdownTimerProps> = ({
+  startTime,
+  onTimeUp,
+}) => {
   const [timeLeft, setTimeLeft] = useState<number>(120); // 2 minutes in seconds
 
   useEffect(() => {
@@ -23,9 +27,9 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ startTime }) => {
 
   useEffect(() => {
     if (timeLeft <= 0) {
-      console.log('Time is up!');
+      onTimeUp();
     }
-  }, [timeLeft]);
+  }, [timeLeft, onTimeUp]);
 
   return (
     <div>

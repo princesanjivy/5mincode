@@ -46,9 +46,17 @@ interface Props {
   userName: string;
   questionId: string;
   currentUsers: any;
+  startTime: Date;
+  onCompletion: () => void;
 }
 
-const Ide = ({ userName, currentUsers, questionId }: Props) => {
+const Ide = ({
+  userName,
+  currentUsers,
+  questionId,
+  startTime,
+  onCompletion,
+}: Props) => {
   const { user, signOut } = useAuth();
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
 
@@ -103,7 +111,12 @@ const Ide = ({ userName, currentUsers, questionId }: Props) => {
     }
   };
 
-  const startTime = new Date();
+  const handleTimeUp = () => {
+    console.log("calling server!");
+    onCompletion();
+  };
+
+  // const startTime = new Date();
 
   return (
     <div className="p-12 h-screen overflow-hidden flex items-center justify-center">
@@ -128,7 +141,7 @@ const Ide = ({ userName, currentUsers, questionId }: Props) => {
         <div className="flex-1 p-8 flex flex-col">
           <div className="flex flex-row items-center font-kronaOne">
             <h1 className="text-xl text-blue-500">Welcome, {userName}</h1>
-            <CountdownTimer startTime={startTime} />
+            <CountdownTimer startTime={startTime} onTimeUp={handleTimeUp} />
             <h1 className="ml-4 text-3xl">1/3</h1>
           </div>
           <div className="mt-8 px-8 font-judson border-2 border-black flex-grow overflow-y-auto">
